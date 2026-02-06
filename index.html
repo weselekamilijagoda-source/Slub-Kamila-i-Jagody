@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ślub Jagody i Kamila</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Reset i podstawowe style */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: #fff8f0; color: #333; line-height: 1.6; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; }
+    section { padding: 60px 20px; max-width: 900px; margin: auto; }
+
+    /* Nagłówek */
+    header { text-align: center; padding: 100px 20px; background: linear-gradient(135deg, #ffe7d6 0%, #fff0e5 100%); position: relative; border-bottom: 1px solid #f0dede; }
+    header h1 { font-size: 3em; margin-bottom: 10px; color: #c56b4d; }
+    header p { font-size: 1.2em; color: #555; }
+
+    /* Subtelne kwiatki w nagłówku */
+    header::before {
+      content: "";
+      position: absolute;
+      top: 10px; left: 10px; right: 10px; bottom: 10px;
+      background: url('https://images.unsplash.com/photo-1523266011557-2e904be28108?auto=format&fit=crop&w=900&q=80') no-repeat center/contain;
+      opacity: 0.08;
+      z-index: 0;
+    }
+    header * { position: relative; z-index: 1; }
+
+    /* Sekcje */
+    section h2 { 
+      font-size: 2em; 
+      margin-bottom: 20px; 
+      text-align: center; 
+      color: #c56b4d; 
+      position: relative;
+      display: inline-block;
+    }
+    /* Kwiatki przy nagłówkach sekcji */
+    section h2::before, section h2::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: url('https://images.unsplash.com/photo-1523266011557-2e904be28108?auto=format&fit=crop&w=80&q=80') no-repeat center/contain;
+      opacity: 0.15;
+    }
+    section h2::before { left: -60px; top: 50%; transform: translateY(-50%); }
+    section h2::after { right: -60px; top: 50%; transform: translateY(-50%) scaleX(-1); }
+
+    section p { text-align: center; margin-bottom: 20px; }
+
+    /* Harmonogram */
+    .schedule { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+    .schedule div { background: #fff0e5; padding: 15px 25px; border-radius: 10px; width: 100%; max-width: 500px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+
+    /* Formularz RSVP */
+    form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: auto; }
+    input, select, textarea, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; }
+    button { background: #c56b4d; color: white; border: none; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #a4543b; }
+
+    /* Nocleg i mapa */
+    .map { width: 100%; height: 300px; border-radius: 10px; margin-top: 20px; }
+
+    /* Animacje delikatnego fade-in */
+    section { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.9em; border-top: 1px solid #f0dede; }
+
+    @media (min-width: 600px) {
+      .schedule { flex-direction: row; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Jagoda i Kamil</h1>
+    <p>Serdecznie zapraszamy na nasz ślub!</p>
+    <p>Data: 22.08.2026</p>
+    <p>Miejsce: Cedrowy Dworek</p>
+  </header>
+
+  <!-- O nas -->
+  <section id="about">
+    <h2>O nas</h2>
+    <p>Nasza historia rozpoczęła się w 2015 roku od przyjaźni, która z czasem przerodziła się w głębokie uczucie. Każdy wspólny moment umacniał naszą więź i doprowadził do dnia, w którym chcemy dzielić nasze życie razem.</p>
+  </section>
+
+  <!-- Harmonogram -->
+  <section id="schedule">
+    <h2>Harmonogram</h2>
+    <div class="schedule">
+      <div>Ślub: 16:00 – Cedrowy Dworek</div>
+      <div>Wesele: 16:30 – Cedrowy Dworek</div>
+      <div>Poprawiny: 11:00 – Cedrowy Dworek</div>
+    </div>
+  </section>
+
+  <!-- Noclegi -->
+  <section id="accommodation">
+    <h2>Noclegi</h2>
+    <p>Dla naszych Gości przewidziane są noclegi, jeśli sobie życzą. Doba hotelowa zaczyna się o 13:00, a kończy o 12:00. Dajcie nam znać, jeśli chcielibyście z nich skorzystać – zorganizujemy je na miejscu.</p>
+  </section>
+
+  <!-- Formularz RSVP -->
+  <section id="rsvp">
+    <h2>Potwierdź przybycie</h2>
+    <form id="rsvpForm">
+      <input type="text" name="name" placeholder="Imię i nazwisko" required>
+      <select name="attendance" required>
+        <option value="">Czy będziesz z nami?</option>
+        <option value="yes">Tak</option>
+        <option value="no">Nie</option>
+      </select>
+      <label>
+        <input type="checkbox" name="accommodation"> Chcę nocleg
+      </label>
+      <textarea name="message" placeholder="Wiadomość (opcjonalnie)"></textarea>
+      <button type="submit">Wyślij</button>
+    </form>
+    <p id="rsvpMessage" style="text-align:center; margin-top:10px;"></p>
+  </section>
+
+  <!-- Mapa -->
+  <section id="location">
+    <h2>Jak do nas dojechać</h2>
+    <iframe class="map" src="https://maps.app.goo.gl/gEqjLEEemJREBJT47" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p>Dziękujemy, że będziecie z nami w tym wyjątkowym dniu!</p>
+  </footer>
+
+  <script>
+    // Formularz RSVP
+    const form = document.getElementById('rsvpForm');
+    const message = document.getElementById('rsvpMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const name = formData.get('name');
+      const attendance = formData.get('attendance');
+      const accommodation = formData.get('accommodation') ? 'Tak' : 'Nie';
+      message.textContent = `Dziękujemy ${name}! Potwierdzenie: ${attendance === 'yes' ? 'Będziesz z nami' : 'Nie będziesz'} | Nocleg: ${accommodation}`;
+      form.reset();
+    });
+
+    // Animacja fade-in sekcji
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
