@@ -218,17 +218,17 @@
 
     <div class="schedule-row">
       <div class="schedule-time">16:00</div>
-      <div><strong>Ceremonia Ślubna</strong><br>Cedrowy Dworek</div>
+      <div><strong>Ceremonia Ślubna</strong><br>Plener w Cedrowym Dworku</div>
     </div>
 
     <div class="schedule-row">
       <div class="schedule-time">16:30</div>
-      <div><strong>Wesele</strong><br>Kolacja i zabawa do rana</div>
+      <div><strong>Wesele</strong><br>Kolacja i zabawa do rana (4:00)</div>
     </div>
 
     <div class="schedule-row">
       <div class="schedule-time">11:00–18:00</div>
-      <div><strong>Poprawiny</strong><br>Grill w ogrodzie</div>
+      <div><strong>Poprawiny</strong><br>Chata Grillowa w Cedrowym Dworku</div>
     </div>
   </div>
 </section>
@@ -268,21 +268,185 @@
   </div>
 </section>
 
-<section>
+<style>
+/* ===== RSVP – STYL ŚLUBNY ELEGANCKI ===== */
+
+.rsvp-section {
+  background: linear-gradient(180deg, #f8f5f0, #ffffff);
+  padding: 90px 20px;
+}
+
+.rsvp-section .container {
+  max-width: 540px;
+  margin: auto;
+  background: #ffffff;
+  padding: 55px 45px;
+  border-radius: 18px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(201,162,77,0.25);
+}
+
+.section-title h2 {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  letter-spacing: 3px;
+  margin-bottom: 45px;
+  color: #2a2a2a;
+}
+
+#rsvpForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea {
+  width: 100%;
+  padding: 15px 18px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 12px;
+  border: 1px solid #e2ded4;
+  background: #faf9f6;
+  transition: all 0.3s ease;
+}
+
+#rsvpForm input::placeholder,
+#rsvpForm textarea::placeholder {
+  color: #a8a39a;
+}
+
+#rsvpForm input:focus,
+#rsvpForm select:focus,
+#rsvpForm textarea:focus {
+  outline: none;
+  border-color: #c9a24d;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(201,162,77,0.2);
+}
+
+/* PRZYCISK */
+#rsvpForm button {
+  margin-top: 25px;
+  padding: 16px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #c9a24d, #e7c878);
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.35s ease;
+}
+
+#rsvpForm button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201,162,77,0.45);
+  background: linear-gradient(135deg, #b7923f, #d9ba6a);
+}
+
+/* WIADOMOŚĆ */
+#formMessage {
+  display: none;
+  margin-top: 28px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+</style>
+
+<section class="rsvp-section">
   <div class="container">
-    <div class="section-title"><h2>Potwierdzenie Przybycia</h2></div>
-    <form id="rsvpForm">
-      <input type="text" placeholder="Imię i nazwisko" required>
-      <select required>
-        <option value="">Czy będziesz z nami?</option>
-        <option>Tak</option>
-        <option>Nie</option>
+    <div class="section-title">
+      <h2>Potwierdzenie Przybycia</h2>
+    </div>
+
+    <form id="rsvpForm"
+      action="https://formsubmit.co/ajax/weselekamilijagoda@gmail.com"
+      method="POST">
+
+      <input type="text" name="Imię i nazwisko"
+        placeholder="Imię i nazwisko" required>
+
+      <select name="Obecność na weselu" required>
+        <option value="">Czy będziesz na weselu?</option>
+        <option value="Tak">Tak</option>
+        <option value="Nie">Nie</option>
       </select>
-      <textarea rows="4" placeholder="Dodatkowe informacje"></textarea>
-      <button>Wyślij</button>
+
+      <select name="Obecność na poprawinach" required>
+        <option value="">Czy będziesz na poprawinach?</option>
+        <option value="Tak">Tak</option>
+        <option value="Nie">Nie</option>
+      </select>
+
+      <select name="Nocleg" required>
+        <option value="">Czy potrzebujesz noclegu?</option>
+        <option value="Tak">Tak</option>
+        <option value="Nie">Nie</option>
+      </select>
+
+      <select name="Rodzaj jedzenia" required>
+        <option value="">Prosimy wybrać danie</option>
+        <option value="Zwykłe">Zwykłe</option>
+        <option value="Wegańskie">Wegańskie</option>
+      </select>
+
+      <textarea name="Dodatkowe informacje" rows="4"
+        placeholder="Dodatkowe informacje (np. alergie, uwagi)"></textarea>
+
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject"
+        value="Nowa odpowiedź – Formularz RSVP Ślub">
+
+      <button type="submit">Wyślij odpowiedź</button>
+
+      <p id="formMessage"></p>
     </form>
   </div>
 </section>
+
+<script>
+const form = document.getElementById("rsvpForm");
+const message = document.getElementById("formMessage");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
+    });
+
+    if (response.ok) {
+      form.reset();
+      message.style.display = "block";
+      message.style.color = "#c9a24d";
+      message.innerHTML =
+        "DZIĘKUJEMY ZA POTWIERDZENIE ❦<br>Do zobaczenia na weselu!";
+    } else {
+      message.style.display = "block";
+      message.style.color = "#2a2a2a";
+      message.innerHTML =
+        "Coś poszło nie tak. Spróbuj ponownie proszę.";
+    }
+  } catch {
+    message.style.display = "block";
+    message.style.color = "#2a2a2a";
+    message.innerHTML =
+      "Błąd połączenia. Spróbuj ponownie proszę.";
+  }
+});
+</script>
 <section class="watercolor">
   <div class="container">
     <div class="section-title"><h2>Upominki</h2></div>
