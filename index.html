@@ -1,502 +1,439 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Będzie Ślub – Jagoda i Kamil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Będzie Ślub – Jagoda i Kamil</title>
 
-  <!-- FONTY -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg-color: #fcfaf5;
-      --accent-gold: #b38b4d;
-      --accent-soft: #f4f1eb;
-      --sage-green: #6b7a6b;
-      --text-dark: #1a1a1a;
-      --white: #ffffff;
-      --border-gold: 2px double #b38b4d;
-    }
+<style>
+:root{
+--bg-color:#fcfaf5;
+--accent-gold:#b38b4d;
+--accent-soft:#f4f1eb;
+--text-dark:#1a1a1a;
+--white:#ffffff;
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    body {
-      font-family: 'Cormorant Garamond', serif;
-      background: var(--bg-color);
-      color: var(--text-dark);
-      line-height: 1.8;
-      font-size: 20px;
-    }
+body{
+font-family:'Cormorant Garamond',serif;
+background:var(--bg-color);
+color:var(--text-dark);
+line-height:1.9;
+font-size:20px;
+padding-top:90px;
+scroll-behavior:smooth;
+}
 
-    h1, h2 {
-      font-family: 'Cinzel', serif;
-      font-weight: 400;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
+h1,h2{
+font-family:'Cinzel',serif;
+font-weight:400;
+letter-spacing:4px;
+text-transform:uppercase;
+}
 
-    h1 { font-size: clamp(2.8rem, 4vw, 4rem); }
-    h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+h1{font-size:clamp(2.8rem,4vw,4rem);}
+h2{font-size:clamp(1.8rem,3vw,2.4rem);}
 
-    p { font-size: clamp(1.1rem, 1.3vw, 1.25rem); }
+p{
+font-size:clamp(1.2rem,1.4vw,1.35rem);
+}
 
-    .cursive {
-      font-family: 'Great Vibes', cursive;
-      text-transform: none;
-      font-size: 2.4em;
-      color: var(--accent-gold);
-    }
+.cursive{
+font-family:'Great Vibes',cursive;
+font-size:2.4em;
+color:var(--accent-gold);
+}
 
-    .container {
-      max-width: 1280px;
-      margin: auto;
-      padding: 0 40px;
-    }
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 40px;
+}
 
-    header {
-      min-height: 100vh;
-      padding: 120px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
-        url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-    }
+/* ===== NAV ===== */
 
-    .header-card {
-      background: rgba(255,255,255,0.94);
-      padding: 90px 70px;
-      max-width: 720px;
-      border: var(--border-gold);
-      box-shadow: 0 0 40px rgba(179,139,77,0.25);
-      animation: fadeUp 1.4s ease forwards;
-    }
+.top-nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(10px);
+padding:18px 0;
+z-index:999;
+border-bottom:1px solid rgba(0,0,0,0.06);
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.nav-container{
+display:flex;
+justify-content:center;
+gap:38px;
+max-width:1100px;
+margin:auto;
+}
 
-    section {
-      padding: 110px 0;
-      text-align: center;
-    }
+.top-nav a{
+text-decoration:none;
+font-family:'Cinzel',serif;
+font-size:13px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:var(--text-dark);
+transition:.3s;
+}
 
-    .section-title {
-      margin-bottom: 50px;
-    }
+.top-nav a:hover{
+color:var(--accent-gold);
+}
 
-    .section-title::after {
-      content: "❦";
-      display: block;
-      color: var(--accent-gold);
-      margin-top: 10px;
-    }
+/* ===== HEADER ===== */
 
-    .watercolor {
-      position: relative;
-      background: var(--accent-soft);
-    }
+header{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)),
+url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+}
 
-    .watercolor::before {
-      content: "";
-      position: absolute;
-      inset: -80px;
-      background: url("https://www.transparenttextures.com/patterns/watercolor.png");
-      opacity: 0.15;
-      pointer-events: none;
-    }
+.header-card{
+background:rgba(255,255,255,.95);
+padding:90px 70px;
+max-width:750px;
+border:1px solid rgba(179,139,77,.3);
+box-shadow:0 30px 60px rgba(0,0,0,.08);
+animation:fadeUp 1.4s ease forwards;
+}
 
-    .schedule-row {
-      background: var(--white);
-      padding: 35px;
-      margin-bottom: 30px;
-      border-left: 4px solid var(--accent-gold);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.06);
-      display: flex;
-      gap: 30px;
-      text-align: left;
-    }
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
 
-    .schedule-time {
-      min-width: 120px;
-      font-family: 'Cinzel', serif;
-      color: var(--accent-gold);
-      font-weight: bold;
-    }
+section{
+padding:110px 0;
+text-align:center;
+}
 
-    .card {
-      background: var(--white);
-      padding: 60px;
-      border: var(--border-gold);
-      max-width: 700px;
-      margin: auto;
-    }
+.section-title{
+margin-bottom:50px;
+}
 
-    form {
-      background: var(--white);
-      padding: 60px;
-      max-width: 760px;
-      margin: auto;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
+.section-title::after{
+content:"";
+display:block;
+width:70px;
+height:2px;
+background:var(--accent-gold);
+margin:18px auto 0;
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 16px;
-      margin-bottom: 22px;
-      font-family: inherit;
-      font-size: 1rem;
-      border: 1px solid #ddd;
-      background: #fafafa;
-    }
+.watercolor{
+background:var(--accent-soft);
+}
 
-    button {
-      background: var(--accent-gold);
-      color: white;
-      padding: 20px;
-      border: none;
-      cursor: pointer;
-      text-transform: uppercase;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 3px;
-    }
+/* ===== PLAN ===== */
 
-    button:hover { background: #9f7a3f; }
+.schedule-row{
+background:var(--white);
+padding:40px;
+margin-bottom:30px;
+display:flex;
+gap:30px;
+text-align:left;
+border-left:4px solid var(--accent-gold);
+box-shadow:0 15px 30px rgba(0,0,0,.06);
+}
 
-    .map {
-      width: 100%;
-      height: 450px;
-      border: none;
-      margin-top: 40px;
-    }
+.schedule-time{
+min-width:120px;
+font-family:'Cinzel',serif;
+color:var(--accent-gold);
+font-weight:600;
+}
 
-    footer {
-      padding: 100px 20px;
-      background: var(--white);
-      border-top: var(--border-gold);
-      text-align: center;
-    }
+/* ===== CARDS ===== */
 
-    @media (max-width: 768px) {
-      .schedule-row {
-        flex-direction: column;
-      }
-      .header-card {
-        padding: 60px 35px;
-      }
-    }
-  </style>
+.card{
+background:var(--white);
+padding:70px;
+max-width:760px;
+margin:auto;
+border-radius:18px;
+border:1px solid rgba(179,139,77,.25);
+box-shadow:0 20px 45px rgba(0,0,0,.05);
+}
+
+/* ===== RSVP ===== */
+
+.rsvp-section{
+background:linear-gradient(180deg,#f8f5f0,#ffffff);
+}
+
+form{
+background:#ffffff;
+padding:60px;
+max-width:760px;
+margin:auto;
+border-radius:20px;
+box-shadow:0 25px 50px rgba(0,0,0,.08);
+}
+
+input,select,textarea{
+width:100%;
+padding:16px;
+margin-bottom:22px;
+font-family:inherit;
+font-size:1rem;
+border:1px solid #e2ded4;
+background:#faf9f6;
+border-radius:10px;
+}
+
+input:focus,select:focus,textarea:focus{
+outline:none;
+border-color:var(--accent-gold);
+box-shadow:0 0 0 2px rgba(179,139,77,.2);
+background:#fff;
+}
+
+button{
+background:linear-gradient(135deg,#c9a24d,#e7c878);
+color:#fff;
+padding:18px;
+border:none;
+cursor:pointer;
+text-transform:uppercase;
+font-family:'Cinzel',serif;
+letter-spacing:3px;
+border-radius:40px;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 30px rgba(179,139,77,.35);
+}
+
+/* ===== MAP ===== */
+
+.map{
+width:100%;
+height:450px;
+border:none;
+margin-top:40px;
+border-radius:16px;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+padding:100px 20px;
+background:#fff;
+border-top:1px solid rgba(179,139,77,.3);
+text-align:center;
+}
+
+@media(max-width:768px){
+.schedule-row{flex-direction:column;}
+.header-card{padding:60px 35px;}
+.nav-container{flex-wrap:wrap;gap:20px;}
+.card{padding:40px;}
+form{padding:40px;}
+}
+</style>
 </head>
 
 <body>
 
+<nav class="top-nav">
+<div class="nav-container">
+<a href="#zaproszenie">Zaproszenie</a>
+<a href="#plan">Plan</a>
+<a href="#nocleg">Nocleg</a>
+<a href="#info">Informacje</a>
+<a href="#rsvp">RSVP</a>
+<a href="#upominki">Upominki</a>
+<a href="#dojazd">Dojazd</a>
+</div>
+</nav>
+
 <header>
-  <div class="header-card">
-    <p class="cursive">Szykujcie się…</p>
-    <h1>Będzie Ślub!</h1>
-    <p style="font-size:1.7em; margin:15px 0;">Jagoda & Kamil</p>
-    <strong>22 SIERPNIA 2026</strong>
-  </div>
+<div class="header-card">
+<p class="cursive">Szykujcie się…</p>
+<h1>Będzie Ślub!</h1>
+<p style="font-size:1.7em;margin:15px 0;">Jagoda & Kamil</p>
+<strong>22 SIERPNIA 2026</strong>
+</div>
 </header>
 
-<section>
-  <div class="container">
-    <div class="section-title"><h2>Zaproszenie</h2></div>
-    <p>Pragniemy zaprosić Was na uroczystość naszych zaślubin oraz przyjęcie weselne.<br>
-      Będzie nam niezmiernie miło, jeśli spędzicie ten dzień razem z nami ❤️</p>
-  </div>
+<section id="zaproszenie">
+<div class="container">
+<div class="section-title"><h2>Zaproszenie</h2></div>
+<p>Pragniemy zaprosić Was na uroczystość zaślubin oraz przyjęcie weselne.<br>
+Będzie nam niezmiernie miło, jeśli spędzicie ten dzień razem z nami ❤️</p>
+</div>
 </section>
 
-<section class="watercolor">
-  <div class="container">
-    <div class="section-title"><h2>Plan Uroczystości</h2></div>
+<section class="watercolor" id="plan">
+<div class="container">
+<div class="section-title"><h2>Plan Uroczystości</h2></div>
 
-    <div class="schedule-row">
-      <div class="schedule-time">16:00</div>
-      <div><strong>Ceremonia Ślubna</strong><br>Plener w Cedrowym Dworku</div>
-    </div>
+<div class="schedule-row">
+<div class="schedule-time">16:00</div>
+<div><strong>Ceremonia Ślubna</strong><br>Plener w Cedrowym Dworku</div>
+</div>
 
-    <div class="schedule-row">
-      <div class="schedule-time">16:30</div>
-      <div><strong>Wesele</strong><br>Kolacja i zabawa do rana (4:00)</div>
-    </div>
+<div class="schedule-row">
+<div class="schedule-time">16:30</div>
+<div><strong>Wesele</strong><br>Jedzonko i zabawa do rana (4:00)</div>
+</div>
 
-    <div class="schedule-row">
-      <div class="schedule-time">11:00–18:00</div>
-      <div><strong>Poprawiny</strong><br>Chata Grillowa w Cedrowym Dworku</div>
-    </div>
-  </div>
+<div class="schedule-row">
+<div class="schedule-time">11:00–18:00</div>
+<div><strong>Poprawiny</strong><br>Chata Grillowa w Cedrowym Dworku</div>
+</div>
+</div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-title"><h2>Nocleg</h2></div>
-    <div class="card">
-      <p>Dla Waszej wygody przygotowaliśmy noclegi na miejscu.</p>
-      <p><strong>Doba hotelowa: 16:00 – 12:00</strong></p>
-    </div>
-  </div>
-</section>
-<section>
-  <div class="container">
-    <div class="section-title"><h2>Informacje Organizacyjne</h2></div>
-
-    <div class="card">
-      <p><strong>Kontakt do świadków:</strong></p>
-      <p>
-        Katarzyna Puciata<br>
-        <strong>692 692 800</strong>
-      </p>
-      <p>
-        Mateusz Mudlaff<br>
-        <strong>693 947 644</strong>
-      </p>
-
-      <br>
-
-      <p style="margin-top:20px;">
-        Pragniemy poinformować, że przyjęcie weselne jest wydarzeniem
-        <strong>wyłącznie dla osób pełnoletnich (18+)</strong>.
-        Dziękujemy za zrozumienie 💛
-      </p>
-    </div>
-  </div>
+<section id="nocleg">
+<div class="container">
+<div class="section-title"><h2>Nocleg</h2></div>
+<div class="card">
+<p>Dla Waszej wygody przygotowaliśmy noclegi na miejscu.</p>
+<p><strong>Doba hotelowa: 16:00 – 12:00</strong></p>
+</div>
+</div>
 </section>
 
-<style>
-/* ===== RSVP – STYL ŚLUBNY ELEGANCKI ===== */
-
-.rsvp-section {
-  background: linear-gradient(180deg, #f8f5f0, #ffffff);
-  padding: 90px 20px;
-}
-
-.rsvp-section .container {
-  max-width: 540px;
-  margin: auto;
-  background: #ffffff;
-  padding: 55px 45px;
-  border-radius: 18px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(201,162,77,0.25);
-}
-
-.section-title h2 {
-  text-align: center;
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  letter-spacing: 3px;
-  margin-bottom: 45px;
-  color: #2a2a2a;
-}
-
-#rsvpForm {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-#rsvpForm input,
-#rsvpForm select,
-#rsvpForm textarea {
-  width: 100%;
-  padding: 15px 18px;
-  font-size: 15px;
-  font-family: "Montserrat", sans-serif;
-  border-radius: 12px;
-  border: 1px solid #e2ded4;
-  background: #faf9f6;
-  transition: all 0.3s ease;
-}
-
-#rsvpForm input::placeholder,
-#rsvpForm textarea::placeholder {
-  color: #a8a39a;
-}
-
-#rsvpForm input:focus,
-#rsvpForm select:focus,
-#rsvpForm textarea:focus {
-  outline: none;
-  border-color: #c9a24d;
-  background: #ffffff;
-  box-shadow: 0 0 0 2px rgba(201,162,77,0.2);
-}
-
-/* PRZYCISK */
-#rsvpForm button {
-  margin-top: 25px;
-  padding: 16px;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg, #c9a24d, #e7c878);
-  color: #ffffff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  transition: all 0.35s ease;
-}
-
-#rsvpForm button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(201,162,77,0.45);
-  background: linear-gradient(135deg, #b7923f, #d9ba6a);
-}
-
-/* WIADOMOŚĆ */
-#formMessage {
-  display: none;
-  margin-top: 28px;
-  text-align: center;
-  font-family: "Playfair Display", serif;
-  font-size: 15px;
-  letter-spacing: 2px;
-}
-</style>
-
-<section class="rsvp-section">
-  <div class="container">
-    <div class="section-title">
-      <h2>Potwierdzenie Przybycia</h2>
-    </div>
-
-    <form id="rsvpForm"
-      action="https://formsubmit.co/ajax/weselekamilijagoda@gmail.com"
-      method="POST">
-
-      <input type="text" name="Imię i nazwisko"
-        placeholder="Imię i nazwisko" required>
-
-      <select name="Obecność na weselu" required>
-        <option value="">Czy będziesz na weselu?</option>
-        <option value="Tak">Tak</option>
-        <option value="Nie">Nie</option>
-      </select>
-
-      <select name="Obecność na poprawinach" required>
-        <option value="">Czy będziesz na poprawinach?</option>
-        <option value="Tak">Tak</option>
-        <option value="Nie">Nie</option>
-      </select>
-
-      <select name="Nocleg" required>
-        <option value="">Czy potrzebujesz noclegu?</option>
-        <option value="Tak">Tak</option>
-        <option value="Nie">Nie</option>
-      </select>
-
-      <select name="Rodzaj jedzenia" required>
-        <option value="">Prosimy wybrać danie</option>
-        <option value="Zwykłe">Zwykłe</option>
-        <option value="Wegańskie">Wegańskie</option>
-      </select>
-
-      <textarea name="Dodatkowe informacje" rows="4"
-        placeholder="Dodatkowe informacje (np. alergie, uwagi)"></textarea>
-
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject"
-        value="Nowa odpowiedź – Formularz RSVP Ślub">
-
-      <button type="submit">Wyślij odpowiedź</button>
-
-      <p id="formMessage"></p>
-    </form>
-  </div>
+<section id="info">
+<div class="container">
+<div class="section-title"><h2>Informacje Organizacyjne</h2></div>
+<div class="card">
+<p><strong>Kontakt do świadków:</strong></p>
+<p>Katarzyna Puciata<br><strong>692 692 800</strong></p>
+<p>Mateusz Mudlaff<br><strong>693 947 644</strong></p>
+<br>
+<p>Pragniemy poinformować, że przyjęcie weselne jest wydarzeniem <strong>wyłącznie dla osób pełnoletnich </strong>.
+Dziękujemy za zrozumienie 💛</p>
+</div>
+</div>
 </section>
 
-<script>
-const form = document.getElementById("rsvpForm");
-const message = document.getElementById("formMessage");
+<section class="rsvp-section" id="rsvp">
+<div class="container">
+<div class="section-title"><h2>Potwierdzenie Przybycia</h2></div>
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
+<form id="rsvpForm"
+action="https://formsubmit.co/ajax/weselekamilijagoda@gmail.com"
+method="POST">
 
-  try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: data,
-      headers: { "Accept": "application/json" }
-    });
+<input type="text" name="Imię i nazwisko" placeholder="Imię i nazwisko" required>
 
-    if (response.ok) {
-      form.reset();
-      message.style.display = "block";
-      message.style.color = "#c9a24d";
-      message.innerHTML =
-        "DZIĘKUJEMY ZA POTWIERDZENIE ❦<br>Do zobaczenia na weselu!";
-    } else {
-      message.style.display = "block";
-      message.style.color = "#2a2a2a";
-      message.innerHTML =
-        "Coś poszło nie tak. Spróbuj ponownie proszę.";
-    }
-  } catch {
-    message.style.display = "block";
-    message.style.color = "#2a2a2a";
-    message.innerHTML =
-      "Błąd połączenia. Spróbuj ponownie proszę.";
-  }
-});
-</script>
-<section class="watercolor">
-  <div class="container">
-    <div class="section-title"><h2>Upominki</h2></div>
+<select name="Obecność na weselu" required>
+<option value="">Czy będziesz na weselu?</option>
+<option value="Tak">Tak</option>
+<option value="Nie">Nie</option>
+</select>
 
-    <div class="card" style="text-align:center;">
-      <p style="font-size:1.3em;">🌸 ➝ 💌</p>
-      <p>
-        Zamiast kwiatów - zdrapki lotto/koperta. Bardzo dziękujemy!
-      </p>
+<select name="Obecność na poprawinach" required>
+<option value="">Czy będziesz na poprawinach?</option>
+<option value="Tak">Tak</option>
+<option value="Nie">Nie</option>
+</select>
 
-      <br>
+<select name="Nocleg" required>
+<option value="">Czy potrzebujesz noclegu?</option>
+<option value="Tak">Tak</option>
+<option value="Nie">Nie</option>
+</select>
 
-      <p style="font-size:1.3em;">🎁 ➝ 💌</p>
-      <p>
-        Jeśli planujecie obdarować nas prezentem,
-        będziemy wdzięczni za kopertę.
-      </p>
+<select name="Rodzaj jedzenia" required>
+<option value="">Prosimy wybrać danie</option>
+<option value="Zwykłe">Zwykłe</option>
+<option value="Wegańskie">Wegańskie</option>
+</select>
 
-      <br>
+<textarea name="Dodatkowe informacje" rows="4"
+placeholder="Dodatkowe informacje (np. alergie, uwagi)"></textarea>
 
-      <p style="font-size:1.3em;">🍀 Lotto ➝ 💌</p>
-      <p>
-        Miło nam będzie także otrzymać zdrapkę lub los lotto —
-        kto wie, może szczęście dopisze 😉
-      </p>
-    </div>
-  </div>
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="Nowa odpowiedź – Formularz RSVP Ślub">
+
+<button type="submit">Wyślij odpowiedź</button>
+<p id="formMessage"></p>
+</form>
+</div>
 </section>
 
+<section class="watercolor" id="upominki">
+<div class="container">
+<div class="section-title"><h2>Upominki</h2></div>
+<div class="card">
+<p style="font-size:1.3em;">🌸 ➝ 💌</p>
+<p>Bardzo prosimy by nie przynosić kwiatów.</p>
+<br>
+<p style="font-size:1.3em;">🎁 ➝ 💌</p>
+<p>Jeśli planujecie obdarować nas prezentem, będziemy wdzięczni za kopertę.</p>
+<br>
+<p style="font-size:1.3em;">🍀 Lotto </p>
+<p>Miło nam będzie także otrzymać zdrapkę lub los lotto — kto wie, może szczęście nam dopisze 😉</p>
+</div>
+</div>
+</section>
 
-<section class="watercolor">
-  <div class="container">
-    <div class="section-title"><h2>Dojazd</h2></div>
-    <p><strong>Cedrowy Dworek</strong><br>ul. Osadników Wojskowych 39A<br>83-020 Cedry Wielkie</p>
-    <iframe class="map"
-      src="https://www.google.com/maps?q=ul.+Osadników+Wojskowych+39A,+83-020+Cedry+Wielkie&output=embed"
-      loading="lazy"></iframe>
-  </div>
+<section class="watercolor" id="dojazd">
+<div class="container">
+<div class="section-title"><h2>Dojazd</h2></div>
+<p><strong>Cedrowy Dworek</strong><br>
+ul. Osadników Wojskowych 39A<br>
+83-020 Cedry Wielkie</p>
+<iframe class="map"
+src="https://www.google.com/maps?q=ul.+Osadników+Wojskowych+39A,+83-020+Cedry+Wielkie&output=embed"
+loading="lazy"></iframe>
+</div>
 </section>
 
 <footer>
-  <p class="cursive" style="font-size:3em;">Jagoda & Kamil</p>
-  <p style="letter-spacing:5px; color:#888;">DO ZOBACZENIA</p>
+<p class="cursive" style="font-size:3em;">Jagoda & Kamil</p>
+<p style="letter-spacing:5px;color:#888;">DO ZOBACZENIA</p>
 </footer>
 
 <script>
-  document.getElementById('rsvpForm').addEventListener('submit', e => {
-    e.preventDefault();
-    alert("Dziękujemy za odpowiedź!");
-  });
+const form=document.getElementById("rsvpForm");
+const message=document.getElementById("formMessage");
+
+form.addEventListener("submit",async(e)=>{
+e.preventDefault();
+const data=new FormData(form);
+try{
+const response=await fetch(form.action,{
+method:"POST",
+body:data,
+headers:{"Accept":"application/json"}
+});
+if(response.ok){
+form.reset();
+message.style.display="block";
+message.style.color="#b38b4d";
+message.innerHTML="DZIĘKUJEMY ZA POTWIERDZENIE<br>Do zobaczenia na weselu!";
+}else{
+message.style.display="block";
+message.innerHTML="Coś poszło nie tak. Spróbuj ponownie proszę.";
+}
+}catch{
+message.style.display="block";
+message.innerHTML="Błąd połączenia. Spróbuj ponownie proszę.";
+}
+});
 </script>
 
 </body>
