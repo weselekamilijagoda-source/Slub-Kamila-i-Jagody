@@ -3,37 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ślub Jagody i Kamila</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <title>Będzie Ślub - Jagoda i Kamil</title>
+  <link href="https://fonts.googleapis.com" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #fdfaf7; 
-      --accent-soft: #e6f0fa; /* Delikatny niebieski pastel */
-      --primary-color: #5a7da0; /* Niebieski akwarelowy */
-      --text-color: #4a4a4a;
+      --bg-color: #fcfaf5; 
+      --accent-gold: #b38b4d; 
+      --sage-green: #6b7a6b; 
+      --text-dark: #1a1a1a;
       --white: #ffffff;
+      --border-gold: 2px double #b38b4d;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.6; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
     
-    /* Header z widocznymi niebieskimi kwiatami */
+    body { 
+      font-family: "Times New Roman", Times, serif; 
+      background: var(--bg-color); 
+      color: var(--text-dark); 
+      line-height: 1.6; 
+      font-size: 19px;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; right: 0; width: 250px; height: 250px;
+      background: url('https://images.unsplash.com') no-repeat top right;
+      background-size: contain;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    h1, h2 { font-family: 'Cinzel', serif; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; color: var(--text-dark); }
+    .cursive { font-family: 'Great Vibes', cursive; text-transform: none; font-size: 2.2em; color: var(--accent-gold); }
+
     header { 
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center; 
-      padding: 140px 20px; 
-      background: var(--white);
-      background-image: 
-        url('https://images.unsplash.com/photo-1602183601797-4f95f8a9732a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'), /* Peonia lewa */
-        url('https://images.unsplash.com/photo-1611095564989-8a2b896bda91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'); /* Peonia prawa */
-      background-repeat: no-repeat;
-      background-position: left top, right bottom;
-      background-size: 250px;
-      position: relative; 
-      border-bottom: 1px solid #eee;
+      background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), 
+                  url('https://images.unsplash.com');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      border-bottom: 8px solid var(--white);
     }
     
-    header h1 { font-size: 3.5em; margin-bottom: 10px; color: var(--primary-color); }
+    .header-card {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 70px 50px;
+      border: var(--border-gold);
+      box-shadow: 0 0 40px rgba(179, 139, 77, 0.2);
+      position: relative;
+      z-index: 3;
+      max-width: 90%;
+    }
+
+    .section-title { margin-bottom: 50px; position: relative; }
+    .section-title h2 { font-size: 2em; }
+    .section-title::after {
+      content: "❦";
+      display: block;
+      color: var(--accent-gold);
+      margin-top: 10px;
+    }
+
+    section { padding: 100px 20px; max-width: 1100px; margin: auto; text-align: center; }
+
+    .schedule-container {
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: left;
+      background: var(--white);
+      padding: 40px;
+      border: 1px solid rgba(179, 139, 77, 0.2);
+    }
+    .schedule-row {
+      display: flex;
+      margin-bottom: 30px;
+      align-items: flex-start;
+    }
+    .schedule-time {
+      font-family: 'Cinzel', serif;
+      color: var(--accent-gold);
+      font-weight: bold;
+      min-width: 110px;
+      border-right: 1px solid var(--accent-gold);
+      margin-right: 25px;
+      padding-right: 10px;
+    }
+    .schedule-desc strong { font-size: 1.1em; display: block; margin-bottom: 5px; }
+
+    .card { background: var(--white); padding: 50px; border: var(--border-gold); }
+
+    form { background: var(--white); padding: 50px; border: 1px solid #e0e0e0; max-width: 750px; margin: auto; }
+    input, select, textarea { padding: 15px; border: 1px solid #dcdcdc; margin-bottom: 20px; width: 100%; font-family: "Times New Roman", serif; font-size: 17px; background: #fafafa; }
+    
+    button { 
+      background: var(--accent-gold); 
+      color: white; 
+      padding: 20px; 
+      border: none; 
+      text-transform: uppercase; 
+      cursor: pointer; 
+      width: 100%; 
+      font-family: 'Cinzel', serif; 
+      letter-spacing: 3px;
+    }
+
+    .map-container { border-radius: 15px; overflow: hidden; border: 1px solid #ddd; margin-top: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .map { width: 100%; height: 450px; border: none; display: block; }
+
+    footer { text-align: center; padding: 100px 20px; background: var(--white); border-top: var(--border-gold); }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2em; }
+      .schedule-container { padding: 25px; }
+      .schedule-time { min-width: 85px; font-size: 0.9em; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-card">
+      <p class="cursive">Szykujcie się...</p>
+      <h1>Będzie Ślub!</h1>
+      <p style="font-size: 1.6em; margin: 15px 0; letter-spacing: 2px;">Jagoda & Kamil</p>
+      <div class="date">22 SIERPNIA 2026</div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-title"><h2>Zaproszenie</h2></div>
+    <p style="max-width: 800px; margin: 0 auto; font-size: 1.2em;">
+      Pragniemy zaprosić Was na uroczystość naszych zaślubin oraz przyjęcie weselne. <br>
+      Będzie nam miło, jeśli spędzicie ten dzień razem z nami.
+    </p>
+  </section>
+
+  <section id="schedule" style="background: #f4f1eb; max-width: 100%;">
+    <div class="section-title"><h2>Plan Uroczystości</h2></div>
+    <div class="schedule-container">
+      <div class="schedule-row">
+        <div class="schedule-time">16:00</div>
+        <div class="schedule-desc">
+          <strong>Ceremonia Ślubna</strong>
+          <p>Cedrowy Dworek, Cedry Wielkie</p>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">16:30</div>
+        <div class="schedule-desc">
+          <strong>Wesele</strong>
+          <p>Uroczysta kolacja i zabawa do rana</p>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">11:00 - 18:00</div>
+        <div class="schedule-desc">
+          <strong>Poprawiny</strong>
+          <p>Niedzielny grill w ogrodzie Cedrowego Dworku</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="accommodation">
+    <div class="section-title"><h2>Nocleg</h2></div>
+    <div class="card">
+      <p>Dla Waszej wygody przygotowaliśmy pokoje hotelowe na miejscu uroczystości.</p>
+      <div style="margin-top: 25px; padding: 15px; border: 1px solid var(--accent-gold); display: inline-block;">
+        Doba hotelowa: <strong>15:00 – 12:00</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="section-title"><h2>Potwierdzenie Przybycia</h2></div>
+    <p style="margin-bottom: 40px;">Będziemy wdzięczni za informację o obecności do dnia <strong>1 lipca 2026 r.</strong></p>
+    <form id="rsvpForm">
+      <input type="text" name="name" placeholder="Imię i Nazwisko" required>
+      <select name="attendance" required>
+        <option value="">Czy będziesz z nami?</option>
+        <option value="yes">Tak, potwierdzam obecność</option>
+        <option value="no">Niestety, nie będę mógł/mogła przybyć</option>
+      </select>
+      <label style="display: flex; align-items: center; margin-bottom: 25px; cursor: pointer; font-size: 0.9em;">
+        <input type="checkbox" name="accommodation" style="width: auto; margin-right: 15px;"> Rezerwuję nocleg
+      </label>
+      <textarea name="message" rows="4" placeholder="Dodatkowe informacje (dieta, życzenia)"></textarea>
+      <button type="submit">Prześlij wiadomość</button>
+    </form>
+    <p id="rsvpMessage" style="margin-top:20px; font-family: 'Cinzel';"></p>
+  </section>
+
+    <section id="location" style="background-color: var(--accent-soft); max-width: 100%;">
+    <div class="section-title-container"><h2>Dojazd</h2></div>
+    <p><strong>Cedrowy Dworek</strong><br>ul. Osadników Wojskowych 39A<br>83-020 Cedry Wielkie</p>
+    <iframe class="map" 
+      src="https://www.google.com/maps?q=ul.+Osadników+Wojskowych+39A,+83-020+Cedry+Wielkie&output=embed" 
+      allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p class="cursive" style="font-size: 3em;">Jagoda & Kamil</p>
+    <div style="width: 50px; height: 1px; background: var(--accent-gold); margin: 20px auto;"></div>
+    <p style="letter-spacing: 5px; font-size: 0.8em; color: #888;">DO ZOBACZENIA WKRÓTCE</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('rsvpForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('rsvpMessage').textContent = "DZIĘKUJEMY! TWOJE POTWIERDZENIE ZOSTAŁO WYSŁANE.";
+      form.style.opacity = "0.3";
+      form.style.pointerEvents = "none";
+    });
+  </script>
+
+</body>
+</html>
     header p { font-size: 1.2em; font-style: italic; color: #777; }
 
     section { padding: 80px 20px; max-width: 900px; margin: auto; text-align: center; }
