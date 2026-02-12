@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,8 +13,10 @@
 --bg-color:#fcfaf5;
 --accent-gold:#b38b4d;
 --accent-soft:#f4f1eb;
+
 --text-dark:#1a1a1a;
 --white:#ffffff;
+--dusty-rose:#c48a9a;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -31,6 +34,7 @@ scroll-behavior:smooth;
 h1,h2{
 font-family:'Cinzel',serif;
 font-weight:400;
+
 letter-spacing:4px;
 text-transform:uppercase;
 }
@@ -52,6 +56,7 @@ color:var(--accent-gold);
 max-width:1200px;
 margin:auto;
 padding:0 40px;
+
 }
 
 /* ===== NAV ===== */
@@ -73,6 +78,7 @@ justify-content:center;
 gap:38px;
 max-width:1100px;
 margin:auto;
+
 }
 
 .top-nav a{
@@ -88,28 +94,94 @@ transition:.3s;
 .top-nav a:hover{
 color:var(--accent-gold);
 }
+.top-nav{
+padding:10px 0 25px 0;
+}
+
+.nav-top-bar{
+position:relative;
+
+max-width:1200px;
+margin:0 auto 10px auto;
+padding:0 40px;
+font-size:12px;
+letter-spacing:2px;
+font-family:'Cinzel',serif;
+color:#777;
+}
+
+.nav-date{
+position:absolute;
+left:40px;
+top:0;
+}
+
+.nav-email{
+position:absolute;
+right:40px;
+top:0;
+}
+.nav-brand{
+
+text-align:center;
+font-family:'Great Vibes',cursive;
+font-size:2.6rem;
+margin-bottom:18px;
+color:var(--accent-gold);
+letter-spacing:1px;
+}
+
+.nav-brand span{
+font-family:'Great Vibes',cursive;
+font-size:2.6rem;
+margin:0 10px;
+}
+
+.nav-brand span{
+display:inline-block;
+font-family:'Great Vibes',cursive;
+font-size:1.8rem;
+letter-spacing:0;
+margin:0 6px;
+}
+
+
+.nav-email{
+text-align:right;
+}
+
+@media(max-width:768px){
+.nav-top-bar{
+flex-direction:column;
+align-items:center;
+gap:5px;
+text-align:center;
+}
+.nav-email{
+text-align:center;
+}
+}
 
 /* ===== HEADER ===== */
 
 header{
 min-height:100vh;
+
 display:flex;
-align-items:center;
+align-items:flex-end;
 justify-content:center;
 text-align:center;
-background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)),
-url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80');
+background:
+linear-gradient(rgba(255,255,255,0.15),rgba(255,255,255,0.35)),
+url('https://images.pexels.com/photos/28651871/pexels-photo-28651871.jpeg');
 background-size:cover;
 background-position:center;
 padding:120px 20px;
 }
 
 .header-card{
-background:rgba(255,255,255,.95);
-padding:90px 70px;
-max-width:750px;
-border:1px solid rgba(179,139,77,.3);
-box-shadow:0 30px 60px rgba(0,0,0,.08);
+margin-bottom:80px;
+max-width:900px;
 animation:fadeUp 1.4s ease forwards;
 }
 
@@ -118,7 +190,23 @@ from{opacity:0;transform:translateY(40px);}
 to{opacity:1;transform:translateY(0);}
 }
 
+header p,
+header strong{
+color:rgba(35,35,35,0.75);
+text-shadow:0 3px 10px rgba(0,0,0,0.25);
+}
+
+.header-date{
+font-family:'Cinzel',serif;
+font-size:1.05rem;
+letter-spacing:4px;
+color:rgba(40,40,40,0.75);
+}
+
+/* ===== SEKCJE ===== */
+
 section{
+
 padding:110px 0;
 text-align:center;
 }
@@ -160,7 +248,8 @@ color:var(--accent-gold);
 font-weight:600;
 }
 
-/* ===== CARDS ===== */
+/* ===== CARD ===== */
+
 
 .card{
 background:var(--white);
@@ -181,6 +270,7 @@ background:linear-gradient(180deg,#f8f5f0,#ffffff);
 form{
 background:#ffffff;
 padding:60px;
+
 max-width:760px;
 margin:auto;
 border-radius:20px;
@@ -202,6 +292,7 @@ input:focus,select:focus,textarea:focus{
 outline:none;
 border-color:var(--accent-gold);
 box-shadow:0 0 0 2px rgba(179,139,77,.2);
+
 background:#fff;
 }
 
@@ -221,6 +312,7 @@ transition:.3s;
 button:hover{
 transform:translateY(-2px);
 box-shadow:0 12px 30px rgba(179,139,77,.35);
+
 }
 
 /* ===== MAP ===== */
@@ -244,17 +336,50 @@ text-align:center;
 
 @media(max-width:768px){
 .schedule-row{flex-direction:column;}
-.header-card{padding:60px 35px;}
+.header-card{margin-bottom:40px;}
 .nav-container{flex-wrap:wrap;gap:20px;}
 .card{padding:40px;}
 form{padding:40px;}
 }
+@media(max-width:768px){
+
+.nav-top-bar{
+position:static;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+}
+
+.nav-date,
+.nav-email{
+position:static;
+left:auto;
+
+right:auto;
+top:auto;
+text-align:center;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <nav class="top-nav">
+
+<div class="nav-top-bar">
+<div class="nav-date" id="currentDate"></div>
+<div class="nav-email">weselekamilijagoda@gmail.com</div>
+</div>
+
+
+<div class="nav-brand">
+Jagoda <span>&</span> Kamil<span>22.08.26</span>  
+</div>
+
 <div class="nav-container">
 <a href="#zaproszenie">Zaproszenie</a>
 <a href="#plan">Plan</a>
@@ -264,14 +389,13 @@ form{padding:40px;}
 <a href="#upominki">Upominki</a>
 <a href="#dojazd">Dojazd</a>
 </div>
+
 </nav>
 
 <header>
-<div class="header-card">
-<p class="cursive">Szykujcie się…</p>
-<h1>Będzie Ślub!</h1>
-<p style="font-size:1.7em;margin:15px 0;">Jagoda & Kamil</p>
-<strong>22 SIERPNIA 2026</strong>
+
+</p>
+
 </div>
 </header>
 
@@ -288,6 +412,7 @@ Będzie nam niezmiernie miło, jeśli spędzicie ten dzień razem z nami ❤️<
 <div class="section-title"><h2>Plan Uroczystości</h2></div>
 
 <div class="schedule-row">
+
 <div class="schedule-time">16:00</div>
 <div><strong>Ceremonia Ślubna</strong><br>Plener w Cedrowym Dworku</div>
 </div>
@@ -302,6 +427,7 @@ Będzie nam niezmiernie miło, jeśli spędzicie ten dzień razem z nami ❤️<
 <div><strong>Poprawiny</strong><br>Chata Grillowa w Cedrowym Dworku</div>
 </div>
 </div>
+
 </section>
 
 <section id="nocleg">
@@ -318,11 +444,13 @@ Będzie nam niezmiernie miło, jeśli spędzicie ten dzień razem z nami ❤️<
 <div class="container">
 <div class="section-title"><h2>Informacje Organizacyjne</h2></div>
 <div class="card">
-<p><strong>Kontakt do świadków:</strong></p>
+<p><strong>Kontakt do świadków:</
+
+strong></p>
 <p>Katarzyna Puciata<br><strong>692 692 800</strong></p>
 <p>Mateusz Mudlaff<br><strong>693 947 644</strong></p>
 <br>
-<p>Pragniemy poinformować, że przyjęcie weselne jest wydarzeniem <strong>wyłącznie dla osób pełnoletnich </strong>.
+<p>Pragniemy poinformować, że przyjęcie weselne jest wydarzeniem <strong>wyłącznie dla osób pełnoletnich</strong>.
 Dziękujemy za zrozumienie 💛</p>
 </div>
 </div>
@@ -347,6 +475,7 @@ method="POST">
 <select name="Obecność na poprawinach" required>
 <option value="">Czy będziesz na poprawinach?</option>
 <option value="Tak">Tak</option>
+
 <option value="Nie">Nie</option>
 </select>
 
@@ -363,7 +492,9 @@ method="POST">
 </select>
 
 <textarea name="Dodatkowe informacje" rows="4"
-placeholder="Dodatkowe informacje (np. alergie, uwagi)"></textarea>
+placeholder="Dodatkowe informacje (np. 
+
+alergie, uwagi)"></textarea>
 
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_subject" value="Nowa odpowiedź – Formularz RSVP Ślub">
@@ -379,12 +510,13 @@ placeholder="Dodatkowe informacje (np. alergie, uwagi)"></textarea>
 <div class="section-title"><h2>Upominki</h2></div>
 <div class="card">
 <p style="font-size:1.3em;">🌸 ➝ 💌</p>
+
 <p>Bardzo prosimy by nie przynosić kwiatów.</p>
 <br>
 <p style="font-size:1.3em;">🎁 ➝ 💌</p>
 <p>Jeśli planujecie obdarować nas prezentem, będziemy wdzięczni za kopertę.</p>
 <br>
-<p style="font-size:1.3em;">🍀 Lotto </p>
+<p style="font-size:1.3em;">🍀 Lotto</p>
 <p>Miło nam będzie także otrzymać zdrapkę lub los lotto — kto wie, może szczęście nam dopisze 😉</p>
 </div>
 </div>
@@ -394,6 +526,7 @@ placeholder="Dodatkowe informacje (np. alergie, uwagi)"></textarea>
 <div class="container">
 <div class="section-title"><h2>Dojazd</h2></div>
 <p><strong>Cedrowy Dworek</strong><br>
+
 ul. Osadników Wojskowych 39A<br>
 83-020 Cedry Wielkie</p>
 <iframe class="map"
@@ -403,11 +536,16 @@ loading="lazy"></iframe>
 </section>
 
 <footer>
-<p class="cursive" style="font-size:3em;">Jagoda & Kamil</p>
-<p style="letter-spacing:5px;color:#888;">DO ZOBACZENIA</p>
+<p class="cursive" style="font-size:3em;">
+Jagoda<br>
+&<br>
+Kamil
+</p>
+<p style="letter-spacing:5px;color:#888;">Do Zobaczenia!</p>
 </footer>
 
 <script>
+
 const form=document.getElementById("rsvpForm");
 const message=document.getElementById("formMessage");
 
@@ -422,6 +560,7 @@ headers:{"Accept":"application/json"}
 });
 if(response.ok){
 form.reset();
+
 message.style.display="block";
 message.style.color="#b38b4d";
 message.innerHTML="DZIĘKUJEMY ZA POTWIERDZENIE<br>Do zobaczenia na weselu!";
@@ -434,7 +573,15 @@ message.style.display="block";
 message.innerHTML="Błąd połączenia. Spróbuj ponownie proszę.";
 }
 });
-</script>
 
+</script>
+<script>
+const today = new Date();
+const options = { day: 'numeric', month: 
+
+'long', year: 'numeric' };
+document.getElementById("currentDate").innerText =
+today.toLocaleDateString('pl-PL', options);
+</script>
 </body>
 </html>
