@@ -67,6 +67,663 @@ top:0;
 width:100%;
 background:rgba(255,255,255,0.95);
 backdrop-filter:blur(10px);
+padding:10px 0 25px 0;
+z-index:999;
+border-bottom:1px solid rgba(0,0,0,0.06);
+transition:transform 0.4s ease;
+}
+
+.nav-container{
+display:flex;
+justify-content:center;
+gap:38px;
+max-width:1100px;
+margin:auto;
+
+}
+
+.top-nav a{
+text-decoration:none;
+font-family:'Cinzel',serif;
+font-size:13px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:var(--text-dark);
+transition:.3s;
+}
+
+.top-nav a:hover{
+color:var(--accent-gold);
+}
+.top-nav{
+padding:10px 0 25px 0;
+}
+
+.nav-top-bar{
+position:relative;
+
+max-width:1200px;
+margin:0 auto 10px auto;
+padding:0 40px;
+font-size:12px;
+letter-spacing:2px;
+font-family:'Cinzel',serif;
+color:#777;
+}
+
+.nav-date{
+position:absolute;
+left:40px;
+top:0;
+}
+
+.nav-email{
+position:absolute;
+right:40px;
+top:0;
+}
+.nav-brand{
+
+text-align:center;
+font-family:'Great Vibes',cursive;
+font-size:2.6rem;
+margin-bottom:18px;
+color:var(--accent-gold);
+letter-spacing:1px;
+}
+
+.nav-brand span{
+font-family:'Great Vibes',cursive;
+font-size:2.6rem;
+margin:0 10px;
+}
+
+.nav-brand span{
+display:inline-block;
+font-family:'Great Vibes',cursive;
+font-size:1.8rem;
+letter-spacing:0;
+margin:0 6px;
+}
+
+
+.nav-email{
+text-align:right;
+}
+
+@media(max-width:768px){
+.nav-top-bar{
+flex-direction:column;
+align-items:center;
+gap:5px;
+text-align:center;
+}
+.nav-email{
+text-align:center;
+}
+.top-nav.hide-nav{
+transform:translateY(-100%);
+}
+
+
+/* ===== HEADER ===== */
+
+header{
+min-height:90vh;
+
+display:flex;
+align-items:flex-end;
+justify-content:center;
+text-align:center;
+
+padding:120px 20px;
+
+/* zwężenie */
+max-width:1100px;
+margin:0 auto;
+
+/* zdjęcie */
+background:
+linear-gradient(rgba(252,250,245,0.3), rgba(252,250,245,0.6)),
+url('https://images.pexels.com/photos/28651871/pexels-photo-28651871.jpeg');
+
+background-size:cover;
+background-position:center;
+}
+.header-card{
+margin-bottom:80px;
+max-width:900px;
+animation:fadeUp 1.4s ease forwards;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+header p,
+header strong{
+color:rgba(35,35,35,0.75);
+text-shadow:0 3px 10px rgba(0,0,0,0.25);
+}
+
+.header-date{
+font-family:'Cinzel',serif;
+font-size:1.05rem;
+letter-spacing:4px;
+color:rgba(40,40,40,0.75);
+}
+
+/* ===== SEKCJE ===== */
+
+section{
+
+padding:110px 0;
+text-align:center;
+}
+
+.section-title{
+margin-bottom:50px;
+}
+
+.section-title::after{
+content:"";
+display:block;
+width:70px;
+height:2px;
+background:var(--accent-gold);
+margin:18px auto 0;
+}
+
+.watercolor{
+background:var(--accent-soft);
+}
+
+/* ===== PLAN ===== */
+
+.schedule-row{
+background:var(--white);
+padding:40px;
+margin-bottom:30px;
+display:flex;
+gap:30px;
+text-align:left;
+border-left:4px solid var(--accent-gold);
+box-shadow:0 15px 30px rgba(0,0,0,.06);
+}
+
+.schedule-time{
+min-width:120px;
+font-family:'Cinzel',serif;
+color:var(--accent-gold);
+font-weight:600;
+}
+
+/* ===== CARD ===== */
+
+
+.card{
+background:var(--white);
+padding:70px;
+max-width:760px;
+margin:auto;
+border-radius:18px;
+border:1px solid rgba(179,139,77,.25);
+box-shadow:0 20px 45px rgba(0,0,0,.05);
+}
+
+/* ===== RSVP ===== */
+
+.rsvp-section{
+background:linear-gradient(180deg,#f8f5f0,#ffffff);
+}
+
+form{
+background:#ffffff;
+padding:60px;
+
+max-width:760px;
+margin:auto;
+border-radius:20px;
+box-shadow:0 25px 50px rgba(0,0,0,.08);
+}
+
+input,select,textarea{
+width:100%;
+padding:16px;
+margin-bottom:22px;
+font-family:inherit;
+font-size:1rem;
+border:1px solid #e2ded4;
+background:#faf9f6;
+border-radius:10px;
+}
+
+input:focus,select:focus,textarea:focus{
+outline:none;
+border-color:var(--accent-gold);
+box-shadow:0 0 0 2px rgba(179,139,77,.2);
+
+background:#fff;
+}
+
+button{
+background:linear-gradient(135deg,#c9a24d,#e7c878);
+color:#fff;
+padding:18px;
+border:none;
+cursor:pointer;
+text-transform:uppercase;
+font-family:'Cinzel',serif;
+letter-spacing:3px;
+border-radius:40px;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 30px rgba(179,139,77,.35);
+
+}
+
+/* ===== MAP ===== */
+
+.map{
+width:100%;
+height:450px;
+border:none;
+margin-top:40px;
+border-radius:16px;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+padding:100px 20px;
+background:#fff;
+border-top:1px solid rgba(179,139,77,.3);
+text-align:center;
+}
+
+@media(max-width:768px){
+.schedule-row{flex-direction:column;}
+.header-card{margin-bottom:40px;}
+.nav-container{flex-wrap:wrap;gap:20px;}
+.card{padding:40px;}
+form{padding:40px;}
+}
+@media(max-width:768px){
+
+.nav-top-bar{
+position:static;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+}
+
+.nav-date,
+.nav-email{
+position:static;
+left:auto;
+
+right:auto;
+top:auto;
+text-align:center;
+}
+
+}
+
+
+.intro-screen{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:#fcfaf5;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:9999;
+  transition:opacity 1s ease, visibility 1s ease;
+}
+
+.intro-date{
+  font-family:'Cinzel',serif;
+  letter-spacing:3px;
+  font-size:1rem;
+}
+
+.intro-names{
+  font-family:'Great Vibes',cursive;
+  font-size:4.5rem;
+  color:#b38b4d;
+  margin:25px 0;
+}
+
+.intro-btn{
+  padding:15px 40px;
+  border:1px solid #b38b4d;
+  background:transparent;
+  color:#b38b4d;
+  font-family:'Cinzel',serif;
+  letter-spacing:3px;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.intro-btn:hover{
+  background:#b38b4d;
+  color:#fff;
+}
+
+.intro-hidden{
+  opacity:0;
+  visibility:hidden;
+}
+
+</style>
+</head>
+
+<body>
+<div class="intro-screen" id="intro">
+  <div class="intro-date">22 sierpnia 2026</div>
+  <div class="intro-names">Jagoda & Kamil</div>
+  <button class="intro-btn" onclick="enterSite()">Zobacz szczegóły</button>
+</div>
+
+<nav class="top-nav">
+
+<div class="nav-top-bar">
+<div class="nav-date" id="currentDate"></div>
+<div class="nav-email">weselekamilijagoda@gmail.com</div>
+</div>
+
+
+<div class="nav-brand">
+  <div class="names">
+    Jagoda <span>&</span> Kamil
+  </div>
+  <div class="wedding-date">
+    22 sierpnia 2026
+  </div>
+</div>
+
+
+<div class="nav-container">
+<a href="#zaproszenie">Zaproszenie</a>
+<a href="#plan">Plan</a>
+<a href="#nocleg">Nocleg</a>
+<a href="#info">Informacje</a>
+<a href="#rsvp">RSVP</a>
+<a href="#upominki">Upominki</a>
+<a href="#dojazd">Dojazd</a>
+</div>
+
+</nav>
+
+<header>
+
+</p>
+
+</div>
+</header>
+
+<section id="zaproszenie">
+<div class="container">
+<div class="section-title"><h2>Zaproszenie</h2></div>
+<p>Pragniemy zaprosić Was na uroczystość zaślubin oraz przyjęcie weselne.<br>
+Będzie nam niezmiernie miło, jeśli spędzicie ten dzień razem z nami ❤️</p>
+</div>
+</section>
+
+<section class="watercolor" id="plan">
+<div class="container">
+<div class="section-title"><h2>Plan Uroczystości</h2></div>
+
+<div class="schedule-row">
+
+<div class="schedule-time">16:00</div>
+<div><strong>Ceremonia Ślubna</strong><br>Plener w Cedrowym Dworku</div>
+</div>
+
+<div class="schedule-row">
+<div class="schedule-time">16:30</div>
+<div><strong>Wesele</strong><br>Przyjęcie weselne i zabawa do białego rana(4:00)</div>
+</div>
+
+<div class="schedule-row">
+<div class="schedule-time">11:00–18:00</div>
+<div><strong>Poprawiny</strong><br>Chata Grillowa w Cedrowym Dworku</div>
+</div>
+</div>
+
+</section>
+
+<section id="nocleg">
+<div class="container">
+<div class="section-title"><h2>Nocleg</h2></div>
+<div class="card">
+<p>Dla Waszej wygody przygotowaliśmy noclegi na miejscu.</p>
+<p><strong>Doba hotelowa: 16:00 – 12:00</strong></p>
+</div>
+</div>
+</section>
+
+<section id="info">
+<div class="container">
+<div class="section-title"><h2>Informacje Organizacyjne</h2></div>
+<div class="card">
+<p><strong>Kontakt do świadków:</
+
+strong></p>
+<p>Katarzyna Puciata<br><strong>692 692 800</strong></p>
+<p>Mateusz Mudlaff<br><strong>693 947 644</strong></p>
+<br>
+<p>Pragniemy poinformować, że przyjęcie weselne jest wydarzeniem <strong>wyłącznie dla osób pełnoletnich</strong>.
+Dziękujemy za zrozumienie 💛</p>
+</div>
+</div>
+</section>
+
+<section class="rsvp-section" id="rsvp">
+<div class="container">
+<div class="section-title"><h2>Potwierdzenie Przybycia</h2></div>
+
+<form id="rsvpForm"
+action="https://formsubmit.co/ajax/weselekamilijagoda@gmail.com"
+method="POST">
+
+<input type="text" name="Imię i nazwisko" placeholder="Imię i nazwisko" required>
+
+<select name="Obecność na weselu" required>
+<option value="">Czy będziesz na weselu?</option>
+<option value="Tak">Tak</option>
+<option value="Nie">Nie</option>
+</select>
+
+<select name="Obecność na poprawinach" required>
+<option value="">Czy będziesz na poprawinach?</option>
+<option value="Tak">Tak</option>
+
+<option value="Nie">Nie</option>
+</select>
+
+<select name="Nocleg" required>
+<option value="">Czy potrzebujesz noclegu?</option>
+<option value="Tak">Tak</option>
+<option value="Nie">Nie</option>
+</select>
+
+<select name="Rodzaj jedzenia" required>
+<option value="">Prosimy wybrać menu</option>
+<option value="Zwykłe">Zwykłe</option>
+<option value="Wegańskie">Wegańskie</option>
+</select>
+
+<textarea name="Dodatkowe informacje" rows="4"
+placeholder="Dodatkowe informacje (np. 
+
+alergie, uwagi)"></textarea>
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="Nowa odpowiedź – Formularz RSVP Ślub">
+
+<button type="submit">Wyślij odpowiedź</button>
+<p id="formMessage"></p>
+</form>
+</div>
+</section>
+
+<section class="watercolor" id="upominki">
+<div class="container">
+<div class="section-title"><h2>Upominki</h2></div>
+<div class="card">
+<p style="font-size:1.3em;">🌸 ➝ 💌</p>
+
+<p>Bardzo prosimy by nie przynosić kwiatów.</p>
+<br>
+<p style="font-size:1.3em;">🎁 ➝ 💌</p>
+<p>Jeśli planujecie obdarować nas prezentem, będziemy wdzięczni za kopertę.</p>
+<br>
+<p style="font-size:1.3em;">🍀 Lotto</p>
+<p>Miło nam będzie także otrzymać zdrapkę lub los lotto — kto wie, może szczęście nam dopisze 😉</p>
+</div>
+</div>
+</section>
+
+<section class="watercolor" id="dojazd">
+<div class="container">
+<div class="section-title"><h2>Dojazd</h2></div>
+<p><strong>Cedrowy Dworek</strong><br>
+
+ul. Osadników Wojskowych 39A<br>
+83-020 Cedry Wielkie</p>
+<iframe class="map"
+src="https://www.google.com/maps?q=ul.+Osadników+Wojskowych+39A,+83-020+Cedry+Wielkie&output=embed"
+loading="lazy"></iframe>
+</div>
+</section>
+
+<footer>
+<p class="cursive" style="font-size:3em;">
+Jagoda<br>
+&<br>
+Kamil
+</p>
+<p style="letter-spacing:5px;color:#888;">Do Zobaczenia!</p>
+</footer>
+<script>
+function enterSite(){
+  const intro = document.getElementById("intro");
+  intro.classList.add("intro-hidden");
+
+  setTimeout(() => {
+    // przewija do sekcji zaproszenie
+    document.getElementById("zaproszenie").scrollIntoView({ behavior: "smooth" });
+  }, 600);
+}
+</script>
+
+<script>
+
+const form=document.getElementById("rsvpForm");
+const message=document.getElementById("formMessage");
+
+form.addEventListener("submit",async(e)=>{
+e.preventDefault();
+const data=new FormData(form);
+try{
+const response=await fetch(form.action,{
+method:"POST",
+body:data,
+headers:{"Accept":"application/json"}
+});
+if(response.ok){
+form.reset();
+
+message.style.display="block";
+message.style.color="#b38b4d";
+message.innerHTML="DZIĘKUJEMY ZA POTWIERDZENIE<br>Do zobaczenia na weselu!";
+}else{
+message.style.display="block";
+message.innerHTML="Coś poszło nie tak. Spróbuj ponownie proszę.";
+}
+}catch{
+message.style.display="block";
+message.innerHTML="Błąd połączenia. Spróbuj ponownie proszę.";
+}
+});
+
+</script>
+<script>
+const today = new Date();
+const options = { day: 'numeric', month: 
+
+'long', year: 'numeric' };
+document.getElementById("currentDate").innerText =
+today.toLocaleDateString('pl-PL', options);
+</script>
+<script>
+let lastScroll = 0;
+const nav = document.querySelector(".top-nav");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll <= 0) {
+    nav.classList.remove("hide-nav");
+    return;
+  }
+
+  if (currentScroll > lastScroll) {
+    // scroll w dół
+    nav.classList.add("hide-nav");
+  } else {
+    // scroll w górę
+    nav.classList.remove("hide-nav");
+  }
+
+  lastScroll = currentScroll;
+});
+</script>
+</body>
+</html>
+letter-spacing:4px;
+text-transform:uppercase;
+}
+
+h1{font-size:clamp(2.8rem,4vw,4rem);}
+h2{font-size:clamp(1.8rem,3vw,2.4rem);}
+
+p{
+font-size:clamp(1.2rem,1.4vw,1.35rem);
+}
+
+.cursive{
+font-family:'Great Vibes',cursive;
+font-size:2.4em;
+color:var(--accent-gold);
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:0 30px;
+}
+
+
+/* ===== NAV ===== */
+
+.top-nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(10px);
 padding:18px 0;
 z-index:999;
 border-bottom:1px solid rgba(0,0,0,0.06);
