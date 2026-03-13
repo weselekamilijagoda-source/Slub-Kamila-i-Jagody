@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Put your HTML text here<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -532,47 +532,58 @@ Dziękujemy za zrozumienie 💛</p>
 <div class="section-title"><h2>Potwierdzenie Przybycia</h2></div>
 
 <form id="rsvpForm"
-action="https://formsubmit.co/ajax/weselekamilijagoda@gmail.com"
+action="https://formsubmit.co/weselekamilijagoda@gmail.com"
 method="POST">
 
-<input type="text" name="Imię i nazwisko" placeholder="Imię i nazwisko" required>
+  <input type="text" name="Imię i nazwisko" placeholder="Imię i nazwisko" required>
 
-<select name="Obecność na weselu" required>
-<option value="">Czy będziesz na weselu?</option>
-<option value="Tak">Tak</option>
-<option value="Nie">Nie</option>
-</select>
+  <select name="Osoba towarzysząca" id="guestSelect" required>
+    <option value="">Czy przychodzisz z osobą towarzyszącą?</option>
+    <option value="Nie">Nie</option>
+    <option value="Tak">Tak</option>
+  </select>
 
-<select name="Obecność na poprawinach" required>
-<option value="">Czy będziesz na poprawinach?</option>
-<option value="Tak">Tak</option>
-  
-<option value="Nie">Nie</option>
-</select>
+  <div id="guestNameField" style="display:none;">
+    <input type="text" name="Imię osoby towarzyszącej" placeholder="Imię osoby towarzyszącej">
+  </div>
 
-<select name="Nocleg" required>
-<option value="">Czy potrzebujesz noclegu?</option>
-<option value="Tak">Tak</option>
-<option value="Nie">Nie</option>
-</select>
+  <select name="Obecność na weselu" required>
+    <option value="">Czy będziesz na weselu?</option>
+    <option value="Tak">Tak</option>
+    <option value="Nie">Nie</option>
+  </select>
 
-<select name="Rodzaj jedzenia" required>
-<option value="">Prosimy wybrać menu</option>
-<option value="Zwykłe">Zwykłe</option>
-<option value="Wegańskie">Wegańskie</option>
-</select>
+  <select name="Obecność na poprawinach" required>
+    <option value="">Czy będziesz na poprawinach?</option>
+    <option value="Tak">Tak</option>
+    <option value="Nie">Nie</option>
+  </select>
 
-<textarea name="Dodatkowe informacje" rows="4"
-placeholder="Dodatkowe informacje (np. 
+  <select name="Nocleg" required>
+    <option value="">Czy potrzebujesz noclegu?</option>
+    <option value="Tak">Tak</option>
+    <option value="Nie">Nie</option>
+  </select>
 
-alergie, uwagi)"></textarea>
+  <select name="Rodzaj jedzenia" required>
+    <option value="">Prosimy wybrać menu</option>
+    <option value="Zwykłe">Zwykłe</option>
+    <option value="Wegańskie">Wegańskie</option>
+  </select>
 
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="Nowa odpowiedź – Formularz RSVP Ślub">
+  <textarea name="Dodatkowe informacje" rows="4"
+  placeholder="Dodatkowe informacje (np. alergie, uwagi)"></textarea>
 
-<button type="submit">Wyślij odpowiedź</button>
-<p id="formMessage"></p>
+  <!-- FormSubmit hidden fields -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="Nowa odpowiedź – Formularz RSVP Ślub">
+  <input type="hidden" name="_next" value="https://twojastrona.pl/dziekujemy.html">
+
+  <button type="submit">Wyślij odpowiedź</button>
+  <p id="formMessage"></p>
+
 </form>
+
 </div>
 </section>
 
@@ -628,33 +639,7 @@ function enterSite(){
 
 <script>
 
-const form=document.getElementById("rsvpForm");
-const message=document.getElementById("formMessage");
 
-form.addEventListener("submit",async(e)=>{
-e.preventDefault();
-const data=new FormData(form);
-try{
-const response=await fetch(form.action,{
-method:"POST",
-body:data,
-headers:{"Accept":"application/json"}
-});
-if(response.ok){
-form.reset();
-
-message.style.display="block";
-message.style.color="#b38b4d";
-message.innerHTML="DZIĘKUJEMY ZA POTWIERDZENIE<br>Do zobaczenia na weselu!";
-}else{
-message.style.display="block";
-message.innerHTML="Coś poszło nie tak. Spróbuj ponownie proszę.";
-}
-}catch{
-message.style.display="block";
-message.innerHTML="Błąd połączenia. Spróbuj ponownie proszę.";
-}
-});
 
 </script>
 <script>
@@ -690,5 +675,20 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 </script>
+<script>
+const guestSelect = document.getElementById("guestSelect");
+const guestField = document.getElementById("guestNameField");
+
+if(guestSelect){
+  guestSelect.addEventListener("change", function(){
+    if(this.value === "Tak"){
+      guestField.style.display = "block";
+    }else{
+      guestField.style.display = "none";
+    }
+  });
+}
+</script>
+
 </body>
 </html>
